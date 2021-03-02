@@ -1,0 +1,17 @@
+FROM python:3.6-buster
+
+WORKDIR /python_docker_basic
+COPY ./ /python_docker_basic
+
+ENV LC_ALL C.UTF-8
+ENV LANG C.UTF-8
+ENV FLASK_ENV production
+ENV TZ=Asia/Seoul
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN pip install -r ./requirements.txt
+
+EXPOSE 8000
+
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "app:app"]
