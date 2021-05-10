@@ -8,6 +8,6 @@ CREATE TABLE `python_docker_table` (
 
 LOCK TABLES `python_docker_table` WRITE;
 
-INSERT INTO `python_docker_table` VALUES (1,'mysql 연결 완료!');
+INSERT INTO `python_docker_table` VALUES (1,'Python Flask Docker Init');
 
 UNLOCK TABLES;
